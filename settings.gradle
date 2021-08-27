@@ -1,0 +1,4 @@
+rootProject.name = "ImageRecognition"
+include ':app'
+include ':camerastream'
+include ':computervision'
