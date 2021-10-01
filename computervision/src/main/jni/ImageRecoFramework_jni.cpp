@@ -27,12 +27,12 @@ extern "C" {
 #define LOGE(...) printf(__VA_ARGS__)
 #endif // __ANDROID__
 
-JNIEXPORT jlong JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_CreateIntance
+JNIEXPORT jlong JNICALL Java_com_imageprocess_computervision_LowLevelProcess_CreateIntance
   (JNIEnv *env, jobject obj){
 	return (jlong)(new ImageRecognitionFramework());
 }
 
-JNIEXPORT jlong JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DestroyIntance
+JNIEXPORT jlong JNICALL Java_com_imageprocess_computervision_LowLevelProcess_DestroyIntance
   (JNIEnv *env, jobject obj, jlong instance){
 	if (instance) {
 		ImageRecognitionFramework* tmp = (ImageRecognitionFramework*)instance;
@@ -42,7 +42,7 @@ JNIEXPORT jlong JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_Destro
 	return -1;
 }
 
-JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_IncrementalLoadData
+JNIEXPORT jint JNICALL Java_com_imageprocess_computervision_LowLevelProcess_IncrementalLoadData
   (JNIEnv *env, jobject obj, jlong instance, jbyteArray data){
 	jbyte *jdata;
 	jsize len;
@@ -66,7 +66,7 @@ JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_Increme
 	return res;
 }
 
-JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DeleteData
+JNIEXPORT jint JNICALL Java_com_imageprocess_computervision_LowLevelProcess_DeleteData
   (JNIEnv *env, jobject obj, jlong instance){
   	if (!instance)
 		return -1;
@@ -75,7 +75,7 @@ JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DeleteD
 	return irf->DeleteData();
 }
 
-JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DecodeFromImage
+JNIEXPORT jint JNICALL Java_com_imageprocess_computervision_LowLevelProcess_DecodeFromImage
   (JNIEnv *env, jobject obj, jlong instance, jbyteArray data, jint width, jint height, jint format){
 	jbyte *jdata;
 	jsize len;
@@ -91,7 +91,7 @@ JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DecodeF
 	return res;
 }
 
-JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DecodeFromSignature
+JNIEXPORT jint JNICALL Java_com_imageprocess_computervision_LowLevelProcess_DecodeFromSignature
   (JNIEnv *env, jobject obj, jlong instance, jbyteArray data){
 	jbyte *jdata;
 	jsize len;
@@ -115,7 +115,7 @@ JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DecodeF
 	return res;
 }
 
-JNIEXPORT jbyteArray JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_ExtractSignatureFromFile
+JNIEXPORT jbyteArray JNICALL Java_com_imageprocess_computervision_LowLevelProcess_ExtractSignatureFromFile
   (JNIEnv *env, jobject obj, jlong instance, jstring filename){
   	jboolean isCopy;
 	jbyteArray retData = NULL;

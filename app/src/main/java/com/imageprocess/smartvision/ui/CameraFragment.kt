@@ -2,8 +2,11 @@ package com.imageprocess.smartvisionapp.view.camera
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.Camera
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.util.Size
@@ -12,9 +15,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.imageprocess.camerastream.camera.PreviewInterface
 import com.imageprocess.smartvision.R
 import com.imageprocess.smartvision.viewmodel.FrameViewModel
@@ -33,7 +38,8 @@ class CameraFragment : Fragment(), PreviewInterface {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.camera_preview, container, false)
+        val v: View = inflater.inflate(R.layout.camera_preview, container, false)
+        return v;
     }
 
     public override fun onStart() {
@@ -205,7 +211,4 @@ class CameraFragment : Fragment(), PreviewInterface {
     override fun onGetCameraPreview(data: ByteArray, previewSize: Size?) {
         FrameViewModel.currentFrameData(data, previewSize)
     }
-
-
 }
-

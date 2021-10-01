@@ -1,4 +1,4 @@
-package com.imageprocess.smartvision
+package com.imageprocess.smartvision.data
 
 import android.graphics.Bitmap
 

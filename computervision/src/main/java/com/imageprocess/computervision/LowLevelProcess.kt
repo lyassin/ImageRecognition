@@ -2,7 +2,7 @@ package com.imageprocess.computervision
 
 import android.util.Log
 
-class LowLevelProcess {
+class LowLevelProcess : ILowLeverProcess{
 
 	init {
 		Initialize()
@@ -29,30 +29,30 @@ class LowLevelProcess {
 			DestroyIntance(instancePtr);
 	}
 
-	public fun Initialize(): Long{
+	fun Initialize(): Long{
 		instancePtr = CreateIntance();
 		return 0;
 	}
 
-	public fun IncrementalLoadData(data: ByteArray): Int {
+	override fun IncrementalLoadData(data: ByteArray): Int {
 		if ( instancePtr != null )
 			return IncrementalLoadData(instancePtr, data);
 		return -1;
 	}
 
-	public fun DeleteData(): Int{
+	override fun DeleteData(): Int{
 		if ( instancePtr != null )
 			return DeleteData(instancePtr);
 		return -1;
 	}
 
-	public fun DecodeFromImage(data: ByteArray, width: Int, height: Int, format: Int): Int {
+	override fun DecodeFromImage(data: ByteArray, width: Int, height: Int, format: Int): Int {
 		if ( instancePtr != null )
 			return DecodeFromImage(instancePtr, data, width, height, format);
 		return -1;
 	}
 
-	public fun DecodeFromSignature(data: ByteArray): Int {
+	override fun DecodeFromSignature(data: ByteArray): Int {
 		if ( instancePtr != null )
 			return DecodeFromSignature(instancePtr, data);
 		return -1;

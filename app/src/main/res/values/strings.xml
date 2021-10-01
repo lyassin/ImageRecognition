@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SmartVision</string>
+    <string name="error_no_activity">No activity found to open "%1$s".</string>
 </resources>

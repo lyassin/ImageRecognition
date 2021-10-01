@@ -16,7 +16,7 @@ extern "C" {
  * Signature: ()I
  */
 
-JNIEXPORT jlong JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_CreateIntance
+JNIEXPORT jlong JNICALL Java_com_imageprocess_computervision_LowLevelProcess_CreateIntance
   (JNIEnv *, jobject);
 
 /*
@@ -24,7 +24,7 @@ JNIEXPORT jlong JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_Create
  * Method:    DestroyIntance
  * Signature: (I)I
  */
-JNIEXPORT jlong JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DestroyIntance
+JNIEXPORT jlong JNICALL Java_com_imageprocess_computervision_LowLevelProcess_DestroyIntance
   (JNIEnv *, jobject, jlong);
 
 /*
@@ -32,7 +32,7 @@ JNIEXPORT jlong JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_Destro
  * Method:    IncrementalLoadData
  * Signature: (I[B)I
  */
-JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_IncrementalLoadData
+JNIEXPORT jint JNICALL Java_com_imageprocess_computervision_LowLevelProcess_IncrementalLoadData
   (JNIEnv *, jobject, jlong, jbyteArray);
 
 /*
@@ -40,7 +40,7 @@ JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_Increme
  * Method:    DeleteData
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DeleteData
+JNIEXPORT jint JNICALL Java_com_imageprocess_computervision_LowLevelProcess_DeleteData
   (JNIEnv *, jobject, jlong);
 
 /*
@@ -48,7 +48,7 @@ JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DeleteD
  * Method:    DecodeFromImage
  * Signature: (I[BIII)I
  */
-JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DecodeFromImage
+JNIEXPORT jint JNICALL Java_com_imageprocess_computervision_LowLevelProcess_DecodeFromImage
   (JNIEnv *, jobject, jlong, jbyteArray, jint, jint, jint);
 
 /*
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DecodeF
  * Method:    DecodeFromSignature
  * Signature: (I[B)I
  */
-JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DecodeFromSignature
+JNIEXPORT jint JNICALL Java_com_imageprocess_computervision_LowLevelProcess_DecodeFromSignature
   (JNIEnv *, jobject, jlong, jbyteArray);
 
 /*
@@ -64,7 +64,7 @@ JNIEXPORT jint JNICALL Java_com_imageprocess_smartvision_LowLevelProcess_DecodeF
  * Method:    ExtractSignatureFromFile
  * Signature: (ILjava/lang/String;)[B
  */
-JNIEXPORT jbyteArray Java_com_imageprocess_smartvision_LowLevelProcess_ExtractSignatureFromFile
+JNIEXPORT jbyteArray Java_com_imageprocess_computervision_LowLevelProcess_ExtractSignatureFromFile
   (JNIEnv *, jobject, jlong, jstring);
 
 #ifdef __cplusplus
