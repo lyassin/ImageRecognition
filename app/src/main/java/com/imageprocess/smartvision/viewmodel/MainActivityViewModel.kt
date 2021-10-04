@@ -9,11 +9,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.imageprocess.smartvision.data.CachingDocumentFile
 import com.imageprocess.smartvision.data.toCachingList
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class MainActivityViewModel (application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class MainActivityViewModel @Inject constructor(application: Application) : AndroidViewModel(application) {
 
     private val _documents = MutableLiveData<List<CachingDocumentFile>>()
     val documents = _documents

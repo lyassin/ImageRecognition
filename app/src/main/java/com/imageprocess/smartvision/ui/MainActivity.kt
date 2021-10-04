@@ -4,21 +4,22 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.imageprocess.smartvision.R
 import com.imageprocess.smartvision.viewmodel.MainActivityViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainActivityViewModel: MainActivityViewModel
+    private val mainActivityViewModel: MainActivityViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        mainActivityViewModel = ViewModelProviders.of(this)
-            .get(MainActivityViewModel::class.java)
 
         val openDirectoryButton = findViewById<FloatingActionButton>(R.id.fab_open_directory)
         openDirectoryButton?.setOnClickListener {

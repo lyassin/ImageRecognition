@@ -1,8 +1,9 @@
 package com.imageprocess.computervision
 
-import android.util.Log
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class LowLevelProcess : ILowLeverProcess{
+class LowLevelProcess @Inject constructor(): ILowLeverProcess{
 
 	init {
 		Initialize()

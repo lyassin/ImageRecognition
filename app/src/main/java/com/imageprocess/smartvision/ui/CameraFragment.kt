@@ -2,11 +2,8 @@ package com.imageprocess.smartvisionapp.view.camera
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.Camera
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.util.Size
@@ -15,22 +12,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.viewModels
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.imageprocess.camerastream.camera.PreviewInterface
 import com.imageprocess.smartvision.R
 import com.imageprocess.smartvision.viewmodel.FrameViewModel
-import com.imageprocess.smartvision.viewmodel.FrameViewModelProvider
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.IOException
 
+@AndroidEntryPoint
 class CameraFragment : Fragment(), PreviewInterface {
 
     private var mCameraSource: CameraSource? = null
     private var mPreview: CameraSourcePreview? = null
-    private val FrameViewModel by lazy { ViewModelProviders.of(this, FrameViewModelProvider())[FrameViewModel::class.java] }
+    private val mFrameViewModel: FrameViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -87,7 +83,6 @@ class CameraFragment : Fragment(), PreviewInterface {
      * with the user is interrupted. In this case you will receive empty permissions
      * and results arrays which should be treated as a cancellation.
      *
-
      * @param requestCode The request code passed in [.requestPermissions].
      * *
      * @param permissions The requested permissions. Never null.
@@ -121,7 +116,6 @@ class CameraFragment : Fragment(), PreviewInterface {
      * Creates and starts the camera.  Note that this uses a higher resolution in comparison
      * to other detection examples to enable the ocr detector to detect small text samples
      * at long distances.
-
      * Suppressing InlinedApi since there is a check that the minimum version is met before using
      * the constant.
      */
@@ -209,6 +203,6 @@ class CameraFragment : Fragment(), PreviewInterface {
     }
 
     override fun onGetCameraPreview(data: ByteArray, previewSize: Size?) {
-        FrameViewModel.currentFrameData(data, previewSize)
+        mFrameViewModel.currentFrameData(data, previewSize)
     }
 }
