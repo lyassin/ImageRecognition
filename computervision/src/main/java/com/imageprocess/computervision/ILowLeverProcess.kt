@@ -6,5 +6,6 @@ interface ILowLeverProcess {
     public fun DeleteData(): Int
     public fun DecodeFromImage(data: ByteArray, width: Int, height: Int, format: Int): Int
     public fun DecodeFromSignature(data: ByteArray): Int
+    public fun ExtractSignatureFromFile(path: String):ByteArray?
 
 }
